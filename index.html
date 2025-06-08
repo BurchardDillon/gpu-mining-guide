@@ -35,10 +35,16 @@
     .animate-marquee {
       animation: marquee 30s linear infinite;
     }
+    .flash {
+      animation: flash 1s ease-in-out;
+    }
+    @keyframes flash {
+      0%, 100% { background-color: transparent; }
+      50% { background-color: #33333388; }
+    }
   </style>
 </head>
 <body>
-
   <!-- Live Price Ticker -->
   <header class="w-full bg-[#1a1a1a] border-b border-[#333] shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
@@ -57,7 +63,6 @@
   </div>
 
   <main class="max-w-7xl mx-auto px-6 pb-16">
-
     <!-- Overview -->
     <section id="overview" class="mb-16">
       <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
@@ -99,13 +104,18 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer Trend Chart Placeholder -->
   <footer class="text-center py-6 text-sm text-gray-500 border-t border-[#333] mt-12">
+    <div class="max-w-4xl mx-auto">
+      <canvas id="trendChart" width="400" height="100" class="mx-auto mb-4"></canvas>
+    </div>
     © 2025 GPU Mining Guide — Designed with efficiency and uptime in mind.
   </footer>
 
-  <!-- CoinGecko Live Price Fetching Script -->
+  <!-- CoinGecko Price Script with Flash + Tooltip + Chart Stub -->
   <script>
+    let previousData = {};
+
     async function loadPrices() {
       const ids = 'ravencoin,kaspa,flux,bitcoin,ethereum';
       const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
@@ -114,25 +124,27 @@
         const res = await fetch(url);
         const data = await res.json();
 
-        const format = (name, price, change) => {
+        const format = (id, name, price, change) => {
           const isUp = change >= 0;
           const arrow = isUp ? '▲' : '▼';
           const color = isUp ? 'text-green-400' : 'text-red-400';
-          const changeText = `${arrow} ${Math.abs(change).toFixed(2)}% (1d)`;
+          const flash = previousData[id] && previousData[id] !== price ? 'flash' : '';
+          previousData[id] = price;
+
           return `
-            <span class="flex items-center gap-2">
+            <span class="flex items-center gap-2 ${flash}" title="${name} - Live Price from CoinGecko">
               <span class="text-orange-400">${name}: $${price.toFixed(4)}</span>
-              <span class="${color} text-xs">${changeText}</span>
+              <span class="${color} text-xs">${arrow} ${Math.abs(change).toFixed(2)}% (1d)</span>
             </span>
           `;
         };
 
         const ticker = [
-          format('RVN', data.ravencoin.usd, data.ravencoin.usd_24h_change),
-          format('KAS', data.kaspa.usd, data.kaspa.usd_24h_change),
-          format('FLUX', data.flux.usd, data.flux.usd_24h_change),
-          format('BTC', data.bitcoin.usd, data.bitcoin.usd_24h_change),
-          format('ETH', data.ethereum.usd, data.ethereum.usd_24h_change),
+          format('ravencoin', 'RVN', data.ravencoin.usd, data.ravencoin.usd_24h_change),
+          format('kaspa', 'KAS', data.kaspa.usd, data.kaspa.usd_24h_change),
+          format('flux', 'FLUX', data.flux.usd, data.flux.usd_24h_change),
+          format('bitcoin', 'BTC', data.bitcoin.usd, data.bitcoin.usd_24h_change),
+          format('ethereum', 'ETH', data.ethereum.usd, data.ethereum.usd_24h_change)
         ];
 
         document.getElementById('price-content').innerHTML = ticker.join('');
@@ -143,8 +155,7 @@
     }
 
     loadPrices();
-    setInterval(loadPrices, 60000); // update every 60s
+    setInterval(loadPrices, 60000);
   </script>
-
 </body>
 </html>
