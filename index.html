@@ -38,6 +38,7 @@
   </style>
 </head>
 <body>
+
   <!-- Live Price Ticker -->
   <header class="w-full bg-[#1a1a1a] border-b border-[#333] shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
@@ -50,18 +51,15 @@
     </div>
   </header>
 
-  <!-- Hero Section: Logo + Intro -->
+  <!-- Logo -->
+  <div class="flex justify-center mt-12 mb-8">
+    <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
+  </div>
+
+  <!-- Main content -->
   <main class="max-w-7xl mx-auto px-6 pb-16">
-    <div class="flex justify-center mt-12 mb-8">
-      <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
-    </div>
 
-    <section class="text-center mb-12">
-      
-      
-    </section>
-
-    <!-- Original Homepage Content Restored -->
+    <!-- Overview -->
     <section id="overview" class="mb-16">
       <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
       <p class="text-gray-400 text-lg max-w-3xl">
@@ -69,80 +67,58 @@
       </p>
     </section>
 
+    <!-- Featured Coins -->
     <section id="coins" class="mb-20">
-  <h2 class="text-2xl font-semibold text-white mb-6">Featured Coins</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="card p-5 rounded-md hover:shadow-lg transition">
-      <div class="flex items-center gap-4 mb-3">
-        <img src="/logos/kaspa.png" alt="Kaspa Logo" class="h-8 w-8 rounded-full">
-        <h3 class="text-lg font-bold accent">Kaspa (KAS)</h3>
-      </div>
-      <p class="text-sm text-gray-300">Algorithm: kHeavyHash</p>
-      <p class="text-sm text-gray-300">Hashrate: ~1 EH/s</p>
-      <p class="text-sm text-gray-300">Price: $0.0859</p>
-      <p class="text-sm text-green-400">▲ +3.23% (1d)</p>
-    </div>
-    <div class="card p-5 rounded-md hover:shadow-lg transition">
-      <div class="flex items-center gap-4 mb-3">
-        <img src="/logos/rvn.png" alt="Ravencoin Logo" class="h-8 w-8 rounded-full">
-        <h3 class="text-lg font-bold accent">Ravencoin (RVN)</h3>
-      </div>
-      <p class="text-sm text-gray-300">Algorithm: KawPoW</p>
-      <p class="text-sm text-gray-300">Hashrate: ~5 TH/s</p>
-      <p class="text-sm text-gray-300">Price: $0.0155</p>
-      <p class="text-sm text-green-400">▲ +13.02% (1d)</p>
-    </div>
-    <div class="card p-5 rounded-md hover:shadow-lg transition">
-      <div class="flex items-center gap-4 mb-3">
-        <img src="/logos/erg.png" alt="Ergo Logo" class="h-8 w-8 rounded-full">
-        <h3 class="text-lg font-bold accent">Ergo (ERG)</h3>
-      </div>
-      <p class="text-sm text-gray-300">Algorithm: Autolykos v2</p>
-      <p class="text-sm text-gray-300">Hashrate: ~6.2 TH/s</p>
-      <p class="text-sm text-gray-300">Price: $0.8827</p>
-      <p class="text-sm text-green-400">▲ +0.60% (1d)</p>
-    </div>
-  </div>
-</section>
+      <h2 class="text-2xl font-semibold text-white mb-6">Featured Coins</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <section id="invest" class="bg-[#222] border border-[#333] p-8 rounded-lg text-center">
-      <h2 class="text-2xl font-bold text-white mb-4">Investment Potential</h2>
-      <p class="text-gray-300 mb-6 max-w-xl mx-auto">
-        Our rigs achieve ROI in 5–7 months. Scale up to 12+ units by Q4 2025 using optimized GPU or CPU builds. This isn’t financial advice — it’s data-driven proof-of-work.
-      </p>
-      <a href="/contact.html" class="btn-orange px-6 py-3 rounded-md text-sm font-semibold">📩 Request Prospectus</a>
+        <!-- Kaspa -->
+        <div class="card p-5 rounded-md hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-3">
+            <img src="kaspa.png" alt="Kaspa Logo" class="h-10 w-10 object-contain" />
+            <h3 class="text-lg font-bold accent">Kaspa (KAS)</h3>
+          </div>
+          <p class="text-sm text-gray-300">Algorithm: kHeavyHash</p>
+          <p class="text-sm text-gray-300">Hashrate: ~1 EH/s</p>
+          <p class="text-sm text-gray-300">Price: $0.0859</p>
+          <p class="text-sm text-green-400">▲ +3.23% (1d)</p>
+        </div>
+
+        <!-- Ravencoin -->
+        <div class="card p-5 rounded-md hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-3">
+            <img src="rvn.png" alt="Ravencoin Logo" class="h-10 w-10 object-contain" />
+            <h3 class="text-lg font-bold accent">Ravencoin (RVN)</h3>
+          </div>
+          <p class="text-sm text-gray-300">Algorithm: KawPoW</p>
+          <p class="text-sm text-gray-300">Hashrate: ~5 TH/s</p>
+          <p class="text-sm text-gray-300">Price: $0.0155</p>
+          <p class="text-sm text-green-400">▲ +13.02% (1d)</p>
+        </div>
+
+        <!-- Ergo -->
+        <div class="card p-5 rounded-md hover:shadow-lg transition">
+          <div class="flex items-center gap-4 mb-3">
+            <img src="erg.png" alt="Ergo Logo" class="h-10 w-10 object-contain" />
+            <h3 class="text-lg font-bold accent">Ergo (ERG)</h3>
+          </div>
+          <p class="text-sm text-gray-300">Algorithm: Autolykos v2</p>
+          <p class="text-sm text-gray-300">Hashrate: ~6.2 TH/s</p>
+          <p class="text-sm text-gray-300">Price: $0.8827</p>
+          <p class="text-sm text-green-400">▲ +0.60% (1d)</p>
+        </div>
+
+      </div>
     </section>
   </main>
 
-  <!-- Live Price Data Script -->
+  <!-- Live Price Script -->
   <script>
     async function loadPrices() {
       const coinMap = {
         kaspa: 'KAS',
         ravencoin: 'RVN',
-        ergo: 'ERG',
-        flux: 'FLUX',
-        neoxa: 'NEOX',
-        conflux: 'CFX',
-        firo: 'FIRO',
-        vertcoin: 'VTC',
-        beam: 'BEAM',
-        nexa: 'NEXA',
-        zano: 'ZANO',
-        neurai: 'XNA',
-        'clore.ai': 'CLORE',
-        meowcoin: 'MEWC',
-        ironfish: 'IRON',
-        dynex: 'DNX',
-        cortex: 'CTXC',
-        'bitcoin-gold': 'BTG',
-        ycash: 'YEC',
-        'super-zero': 'SERO',
-        'epic-cash': 'EPIC',
-        conceal: 'CCX',
-        ubiq: 'UBQ',
-        bitcoin: 'BTC',
-        ethereum: 'ETH'
+        ergo: 'ERG'
       };
 
       const ids = Object.keys(coinMap).join(',');
@@ -176,7 +152,7 @@
     }
 
     loadPrices();
-    setInterval(loadPrices, 90000); // every 90s
+    setInterval(loadPrices, 60000);
   </script>
 </body>
 </html>
