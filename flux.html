@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FLUX - Flux Mining Info</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white font-sans">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-2">Flux (FLUX)</h1>
+    <p class="text-gray-400 mb-6">Algorithm: ZelHash • Network Hashrate: 3.1 MSol/s • Difficulty: 10.5M</p>
+
+    <div class="bg-gray-800 rounded-lg p-4 mb-4">
+      <p class="text-xl">💰 Profit (RTX 4080): <span class="text-green-400">$0.92/day</span></p>
+      <p>🔧 Best GPUs: RTX 4080 SUPER, RTX 3090, RX 6950 XT</p>
+      <p>🌐 Best Pools: 
+        <a href="https://fluxpools.net" class="text-blue-400 underline">FluxPools</a>, 
+        <a href="https://minerpool.org" class="text-blue-400 underline">MinerPool</a>, 
+        <a href="https://2miners.com" class="text-blue-400 underline">2Miners</a>
+      </p>
+    </div>
+
+    <button onclick="toggleGuide()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white mb-4">
+      Toggle Beginner Guide
+    </button>
+
+    <div id="beginner-guide" class="hidden bg-gray-900 border border-gray-700 rounded p-4">
+      <h2 class="text-2xl font-semibold mb-2">Beginner Mining Guide</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Download a miner: 
+          <a href="https://github.com/trexminer/T-Rex/releases" class="underline text-blue-400">T-Rex Miner</a> or 
+          <a href="https://github.com/BZMiner/BZMiner" class="underline text-blue-400">BZMiner</a>
+        </li>
+        <li>Get a wallet: Use 
+          <a href="https://zelcore.io" class="underline text-blue-400">Zelcore Wallet</a> (official FLUX wallet)
+        </li>
+        <li>Pool config: 
+          <code class="bg-gray-800 p-1 rounded text-sm">stratum+tcp://fluxpool.net:2032</code>
+        </li>
+        <li>💻 Sample .bat file: 
+          <code class="bg-gray-800 p-1 rounded text-sm">
+            t-rex.exe -a zelhash -o stratum+tcp://fluxpool.net:2032 -u YOUR_WALLET.RIG -p x
+          </code>
+        </li>
+        <li>🎥 Watch: 
+          <a href="https://www.youtube.com/watch?v=vQH5OBeWDx0" class="text-purple-400 underline">Red Panda Flux Setup</a> | 
+          <a href="https://www.youtube.com/watch?v=6VtNZQIkT7Y" class="text-purple-400 underline">VoskCoin FLUX Walkthrough</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleGuide() {
+      const guide = document.getElementById("beginner-guide");
+      guide.classList.toggle("hidden");
