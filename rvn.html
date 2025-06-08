@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RVN - Ravencoin Mining Info</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white font-sans">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-2">Ravencoin (RVN)</h1>
+    <p class="text-gray-400 mb-6">Algorithm: KAWPOW • Network Hashrate: 12.5 TH/s • Difficulty: 223.8K</p>
+
+    <div class="bg-gray-800 rounded-lg p-4 mb-4">
+      <p class="text-xl">💰 Profit (RTX 4080): <span class="text-green-400">$1.21/day</span></p>
+      <p>🔧 Best GPUs: RTX 4080 SUPER, RTX 4090, RX 7900 XTX</p>
+      <p>🌐 Best Pools: 
+        <a href="https://2miners.com" class="text-blue-400 underline">2Miners</a>, 
+        <a href="https://woolypooly.com" class="text-blue-400 underline">WoolyPooly</a>, 
+        Flypool
+      </p>
+    </div>
+
+    <button onclick="toggleGuide()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white mb-4">
+      Toggle Beginner Guide
+    </button>
+
+    <div id="beginner-guide" class="hidden bg-gray-900 border border-gray-700 rounded p-4">
+      <h2 class="text-2xl font-semibold mb-2">Beginner Mining Guide</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Download a miner: 
+          <a href="https://github.com/develsoftware/GMinerRelease" class="underline text-blue-400">Gminer</a> or T-Rex
+        </li>
+        <li>Get a wallet: Use 
+          <a href="https://zelcore.io" class="underline text-blue-400">Zelcore</a> or Trust Wallet
+        </li>
+        <li>Pool config: 
+          <code class="bg-gray-800 p-1 rounded text-sm">stratum+tcp://rvn.2miners.com:6060</code>
+        </li>
+        <li>💻 Sample .bat file: 
+          <code class="bg-gray-800 p-1 rounded text-sm">
+            miner.exe -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u YOUR_WALLET.RIG -p x
+          </code>
+        </li>
+        <li>🎥 Watch: 
+          <a href="#" class="text-purple-400 underline">VoskCoin RVN Setup</a> | 
+          <a href="#" class="text-purple-400 underline">Red Panda Deep Dive</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleGuide() {
+      const guide = document.getElementById("beginner-guide");
+      guide.classList.toggle("hidden");
+    }
+  </script>
+</body>
+</html>
