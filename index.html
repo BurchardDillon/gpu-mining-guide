@@ -1,158 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPU Mining Guide | Performance Meets Profitability</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #1a1a1a;
-      color: #e5e5e5;
-      font-family: 'Inter', sans-serif;
-    }
-    .accent {
-      color: #ff6b00;
-    }
-    .card {
-      background-color: #2a2a2a;
-      border: 1px solid #3d3d3d;
-    }
-    .card:hover {
-      border-color: #ff6b00;
-    }
-    .btn-orange {
-      background-color: #ff6b00;
-      color: #1a1a1a;
-    }
-    .btn-orange:hover {
-      background-color: #ff7d1a;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%) }
-      100% { transform: translateX(-100%) }
-    }
-    .animate-marquee {
-      animation: marquee 60s linear infinite;
-    }
-  </style>
-</head>
-<body>
+<section id="coins" class="mb-20">
+  <h2 class="text-2xl font-semibold text-white mb-6">Featured Coins</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-  <!-- Live Price Ticker -->
-  <header class="w-full bg-[#1a1a1a] border-b border-[#333] shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
-      <span class="text-xs text-[#888] tracking-wider">GPU COIN SCANNER</span>
-      <div id="coin-ticker" class="flex-1 overflow-hidden ml-6">
-        <div class="flex gap-10 animate-marquee whitespace-nowrap text-sm" id="price-content">
-          Loading GPU coins...
-        </div>
+    <!-- Kaspa -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="kaspa.png" alt="Kaspa Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Kaspa (KAS)</h3>
       </div>
+      <p class="text-sm text-gray-300">Algorithm: kHeavyHash</p>
+      <p class="text-sm text-gray-300">Hashrate: ~1 EH/s</p>
+      <p class="text-sm text-gray-300">Price: $0.0859</p>
+      <p class="text-sm text-green-400">▲ +3.23% (1d)</p>
     </div>
-  </header>
 
-  <!-- Logo -->
-  <div class="flex justify-center mt-12 mb-8">
-    <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
-  </div>
-
-  <!-- Main content -->
-  <main class="max-w-7xl mx-auto px-6 pb-16">
-
-    <!-- Overview -->
-    <section id="overview" class="mb-16">
-      <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
-      <p class="text-gray-400 text-lg max-w-3xl">
-        GPU Mining Guide is your high-performance dashboard to real profitability. We track, optimize, and scale efficient crypto mining rigs for modern builders.
-      </p>
-    </section>
-
-    <!-- Featured Coins -->
-    <section id="coins" class="mb-20">
-      <h2 class="text-2xl font-semibold text-white mb-6">Featured Coins</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Kaspa -->
-        <div class="card p-5 rounded-md hover:shadow-lg transition">
-          <div class="flex items-center gap-4 mb-3">
-            <img src="kaspa.png" alt="Kaspa Logo" class="h-10 w-10 object-contain" />
-            <h3 class="text-lg font-bold accent">Kaspa (KAS)</h3>
-          </div>
-          <p class="text-sm text-gray-300">Algorithm: kHeavyHash</p>
-          <p class="text-sm text-gray-300">Hashrate: ~1 EH/s</p>
-          <p class="text-sm text-gray-300">Price: $0.0859</p>
-          <p class="text-sm text-green-400">▲ +3.23% (1d)</p>
-        </div>
-
-        <!-- Ravencoin -->
-        <div class="card p-5 rounded-md hover:shadow-lg transition">
-          <div class="flex items-center gap-4 mb-3">
-            <img src="rvn.png" alt="Ravencoin Logo" class="h-10 w-10 object-contain" />
-            <h3 class="text-lg font-bold accent">Ravencoin (RVN)</h3>
-          </div>
-          <p class="text-sm text-gray-300">Algorithm: KawPoW</p>
-          <p class="text-sm text-gray-300">Hashrate: ~5 TH/s</p>
-          <p class="text-sm text-gray-300">Price: $0.0155</p>
-          <p class="text-sm text-green-400">▲ +13.02% (1d)</p>
-        </div>
-
-        <!-- Ergo -->
-        <div class="card p-5 rounded-md hover:shadow-lg transition">
-          <div class="flex items-center gap-4 mb-3">
-            <img src="erg.png" alt="Ergo Logo" class="h-10 w-10 object-contain" />
-            <h3 class="text-lg font-bold accent">Ergo (ERG)</h3>
-          </div>
-          <p class="text-sm text-gray-300">Algorithm: Autolykos v2</p>
-          <p class="text-sm text-gray-300">Hashrate: ~6.2 TH/s</p>
-          <p class="text-sm text-gray-300">Price: $0.8827</p>
-          <p class="text-sm text-green-400">▲ +0.60% (1d)</p>
-        </div>
-
+    <!-- Ravencoin -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="rvn.png" alt="Ravencoin Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Ravencoin (RVN)</h3>
       </div>
-    </section>
-  </main>
+      <p class="text-sm text-gray-300">Algorithm: KawPoW</p>
+      <p class="text-sm text-gray-300">Hashrate: ~5 TH/s</p>
+      <p class="text-sm text-gray-300">Price: $0.0155</p>
+      <p class="text-sm text-green-400">▲ +13.02% (1d)</p>
+    </div>
 
-  <!-- Live Price Script -->
-  <script>
-    async function loadPrices() {
-      const coinMap = {
-        kaspa: 'KAS',
-        ravencoin: 'RVN',
-        ergo: 'ERG'
-      };
+    <!-- Ergo -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="erg.png" alt="Ergo Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Ergo (ERG)</h3>
+      </div>
+      <p class="text-sm text-gray-300">Algorithm: Autolykos v2</p>
+      <p class="text-sm text-gray-300">Hashrate: ~6.2 TH/s</p>
+      <p class="text-sm text-gray-300">Price: $0.8827</p>
+      <p class="text-sm text-green-400">▲ +0.60% (1d)</p>
+    </div>
 
-      const ids = Object.keys(coinMap).join(',');
-      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+    <!-- Neoxa -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="neoxa.png" alt="Neoxa Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Neoxa (NEOX)</h3>
+      </div>
+      <p class="text-sm text-gray-300">Algorithm: KawPoW</p>
+      <p class="text-sm text-gray-300">Hashrate: ~70 GH/s</p>
+      <p class="text-sm text-gray-300">Price: ~$0.001</p>
+      <p class="text-sm text-red-400">▼ -2.0% (1d)</p>
+    </div>
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
+    <!-- Firo -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="firo.png" alt="Firo Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Firo (FIRO)</h3>
+      </div>
+      <p class="text-sm text-gray-300">Algorithm: FiroPoW</p>
+      <p class="text-sm text-gray-300">Hashrate: ~10 GH/s</p>
+      <p class="text-sm text-gray-300">Price: ~$1.60</p>
+      <p class="text-sm text-red-400">▼ -1.2% (1d)</p>
+    </div>
 
-        const ticker = Object.entries(coinMap).map(([id, symbol]) => {
-          const price = data[id]?.usd;
-          const change = data[id]?.usd_24h_change;
-          if (price === undefined || change === undefined) return '';
+    <!-- Vertcoin -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="vertcoin.png" alt="Vertcoin Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Vertcoin (VTC)</h3>
+      </div>
+      <p class="text-sm text-gray-300">Algorithm: Verthash</p>
+      <p class="text-sm text-gray-300">Hashrate: ~2.2 GH/s</p>
+      <p class="text-sm text-gray-300">Price: ~$0.08</p>
+      <p class="text-sm text-green-400">▲ +0.9% (1d)</p>
+    </div>
 
-          const isUp = change >= 0;
-          const arrow = isUp ? '▲' : '▼';
-          const color = isUp ? 'text-green-400' : 'text-red-400';
-          const changeText = `${arrow} ${Math.abs(change).toFixed(2)}% (1d)`;
+    <!-- Beam -->
+    <div class="card p-5 rounded-md hover:shadow-lg transition">
+      <div class="flex items-center gap-4 mb-3">
+        <img src="beam.png" alt="Beam Logo" class="h-10 w-10 object-contain" />
+        <h3 class="text-lg font-bold accent">Beam (BEAM)</h3>
+      </div>
+      <p class="text-sm text-gray-300">Algorithm: BeamHash III</p>
+      <p class="text-sm text-gray-300">Hashrate: ~133 KSol/s</p>
+      <p class="text-sm text-gray-300">Price: ~$0.04</p>
+      <p class="text-sm text-red-400">▼ -3.7% (1d)</p>
+    </div>
 
-          return `<span class="flex items-center gap-2" title="${symbol} via CoinGecko">
-            <span class="text-orange-400">${symbol}: $${price.toFixed(4)}</span>
-            <span class="${color} text-xs">${changeText}</span>
-          </span>`;
-        });
-
-        document.getElementById('price-content').innerHTML = ticker.join('');
-      } catch (err) {
-        console.error('Failed to load GPU coin prices:', err);
-        document.getElementById('price-content').textContent = 'Unable to load data.';
-      }
-    }
-
-    loadPrices();
-    setInterval(loadPrices, 60000);
-  </script>
-</body>
-</html>
+  </div>
+</section>
