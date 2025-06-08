@@ -33,129 +33,97 @@
       100% { transform: translateX(-100%) }
     }
     .animate-marquee {
-      animation: marquee 30s linear infinite;
-    }
-    .flash {
-      animation: flash 1s ease-in-out;
-    }
-    @keyframes flash {
-      0%, 100% { background-color: transparent; }
-      50% { background-color: #33333388; }
+      animation: marquee 60s linear infinite;
     }
   </style>
 </head>
 <body>
-  <!-- Live Price Ticker -->
   <header class="w-full bg-[#1a1a1a] border-b border-[#333] shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
-      <span class="text-xs text-[#888] tracking-wider">LIVE PRICES</span>
+      <span class="text-xs text-[#888] tracking-wider">GPU COIN SCANNER</span>
       <div id="coin-ticker" class="flex-1 overflow-hidden ml-6">
-        <div class="flex gap-8 animate-marquee whitespace-nowrap text-sm" id="price-content">
-          Loading prices...
+        <div class="flex gap-10 animate-marquee whitespace-nowrap text-sm" id="price-content">
+          Loading GPU coins...
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Large Logo -->
-  <div class="flex justify-center mt-12 mb-12">
-    <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
-  </div>
-
   <main class="max-w-7xl mx-auto px-6 pb-16">
-    <!-- Overview -->
-    <section id="overview" class="mb-16">
-      <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
-      <p class="text-gray-400 text-lg max-w-3xl">
-        GPU Mining Guide is your high-performance dashboard to real profitability. We track, optimize, and scale efficient crypto mining rigs for modern builders.
-      </p>
-    </section>
+    <div class="flex justify-center my-12">
+      <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
+    </div>
 
-    <!-- Coins -->
-    <section id="coins" class="mb-20">
-      <h2 class="text-2xl font-semibold text-white mb-6">Supported Coins</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href="/rvn.html" class="card p-5 rounded-md hover:shadow-lg transition">
-          <h3 class="text-lg font-bold accent mb-1">Ravencoin (RVN)</h3>
-          <p class="text-sm text-gray-300">GPU: KAWPOW • Consistent performer</p>
-        </a>
-        <a href="/kas.html" class="card p-5 rounded-md hover:shadow-lg transition">
-          <h3 class="text-lg font-bold accent mb-1">Kaspa (KAS)</h3>
-          <p class="text-sm text-gray-300">GPU: kHeavyHash • Efficient and scalable</p>
-        </a>
-        <a href="/flux.html" class="card p-5 rounded-md hover:shadow-lg transition">
-          <h3 class="text-lg font-bold accent mb-1">Flux (FLUX)</h3>
-          <p class="text-sm text-gray-300">GPU: ZelHash • Cloud-native rewards</p>
-        </a>
-        <a href="/tari.html" class="card p-5 rounded-md hover:shadow-lg transition">
-          <h3 class="text-lg font-bold accent mb-1">Tari (TARI)</h3>
-          <p class="text-sm text-gray-300">CPU: RandomX • Lightweight solo mining</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Investment CTA -->
-    <section id="invest" class="bg-[#222] border border-[#333] p-8 rounded-lg text-center">
-      <h2 class="text-2xl font-bold text-white mb-4">Investment Potential</h2>
-      <p class="text-gray-300 mb-6 max-w-xl mx-auto">
-        Our rigs achieve ROI in 5–7 months. Scale up to 12+ units by Q4 2025 using optimized GPU or CPU builds. This isn’t financial advice — it’s data-driven proof-of-work.
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">Top 25 ASIC-Resistant GPU-Mineable Coins</h2>
+      <p class="text-gray-400 text-lg max-w-4xl mx-auto">
+        Real-time market scan of coins using GPU-friendly, ASIC-resistant proof-of-work algorithms — powered by CoinGecko.
       </p>
-      <a href="/contact.html" class="btn-orange px-6 py-3 rounded-md text-sm font-semibold">📩 Request Prospectus</a>
     </section>
   </main>
 
-  <!-- Footer Trend Chart Placeholder -->
-  <footer class="text-center py-6 text-sm text-gray-500 border-t border-[#333] mt-12">
-    <div class="max-w-4xl mx-auto">
-      <canvas id="trendChart" width="400" height="100" class="mx-auto mb-4"></canvas>
-    </div>
-    © 2025 GPU Mining Guide — Designed with efficiency and uptime in mind.
-  </footer>
-
-  <!-- CoinGecko Price Script with Flash + Tooltip + Chart Stub -->
   <script>
-    let previousData = {};
-
     async function loadPrices() {
-      const ids = 'ravencoin,kaspa,flux,bitcoin,ethereum';
+      const coinMap = {
+        kaspa: 'KAS',
+        ravencoin: 'RVN',
+        ergo: 'ERG',
+        flux: 'FLUX',
+        neoxa: 'NEOX',
+        conflux: 'CFX',
+        firo: 'FIRO',
+        vertcoin: 'VTC',
+        beam: 'BEAM',
+        nexa: 'NEXA',
+        zano: 'ZANO',
+        neurai: 'XNA',
+        'clore.ai': 'CLORE',
+        meowcoin: 'MEWC',
+        ironfish: 'IRON',
+        dynex: 'DNX',
+        cortex: 'CTXC',
+        'bitcoin-gold': 'BTG',
+        ycash: 'YEC',
+        'super-zero': 'SERO',
+        'epic-cash': 'EPIC',
+        conceal: 'CCX',
+        ubiq: 'UBQ',
+        bitcoin: 'BTC',
+        ethereum: 'ETH'
+      };
+
+      const ids = Object.keys(coinMap).join(',');
       const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
 
       try {
         const res = await fetch(url);
         const data = await res.json();
 
-        const format = (id, name, price, change) => {
+        const ticker = Object.entries(coinMap).map(([id, symbol]) => {
+          const price = data[id]?.usd;
+          const change = data[id]?.usd_24h_change;
+          if (price === undefined || change === undefined) return '';
+
           const isUp = change >= 0;
           const arrow = isUp ? '▲' : '▼';
           const color = isUp ? 'text-green-400' : 'text-red-400';
-          const flash = previousData[id] && previousData[id] !== price ? 'flash' : '';
-          previousData[id] = price;
+          const changeText = `${arrow} ${Math.abs(change).toFixed(2)}% (1d)`;
 
-          return `
-            <span class="flex items-center gap-2 ${flash}" title="${name} - Live Price from CoinGecko">
-              <span class="text-orange-400">${name}: $${price.toFixed(4)}</span>
-              <span class="${color} text-xs">${arrow} ${Math.abs(change).toFixed(2)}% (1d)</span>
-            </span>
-          `;
-        };
-
-        const ticker = [
-          format('ravencoin', 'RVN', data.ravencoin.usd, data.ravencoin.usd_24h_change),
-          format('kaspa', 'KAS', data.kaspa.usd, data.kaspa.usd_24h_change),
-          format('flux', 'FLUX', data.flux.usd, data.flux.usd_24h_change),
-          format('bitcoin', 'BTC', data.bitcoin.usd, data.bitcoin.usd_24h_change),
-          format('ethereum', 'ETH', data.ethereum.usd, data.ethereum.usd_24h_change)
-        ];
+          return `<span class="flex items-center gap-2" title="${symbol} via CoinGecko">
+            <span class="text-orange-400">${symbol}: $${price.toFixed(4)}</span>
+            <span class="${color} text-xs">${changeText}</span>
+          </span>`;
+        });
 
         document.getElementById('price-content').innerHTML = ticker.join('');
       } catch (err) {
-        console.error('Failed to load prices:', err);
-        document.getElementById('price-content').textContent = 'Unable to load prices.';
+        console.error('Failed to load GPU coin prices:', err);
+        document.getElementById('price-content').textContent = 'Unable to load data.';
       }
     }
 
     loadPrices();
-    setInterval(loadPrices, 60000);
+    setInterval(loadPrices, 90000); // every 90s
   </script>
 </body>
 </html>
