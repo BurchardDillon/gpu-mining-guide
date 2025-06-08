@@ -2,36 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GPU Mining Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPU Mining Guide | Scalable, Investable, Profitable</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glass {
+      backdrop-filter: blur(10px);
+      background-color: rgba(31, 41, 55, 0.7);
+    }
+  </style>
 </head>
 <body class="bg-gray-950 text-white font-sans">
-  <div class="max-w-5xl mx-auto px-6 py-12 text-center">
-    <h1 class="text-5xl font-extrabold mb-4">⚡ GPU Mining Guide</h1>
-    <p class="text-gray-400 mb-10 text-lg">Explore profitable coins, setup instructions, and beginner-friendly tutorials.</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-      <a href="/rvn.html" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-6 transition duration-200 shadow-md">
-        <h2 class="text-2xl font-semibold text-purple-400">Ravencoin (RVN)</h2>
-        <p class="text-sm text-gray-400 mt-2">🪙 GPU: Kawpow • Popular & profitable for mid-to-high end rigs</p>
+  <!-- Sticky Nav -->
+  <header class="glass sticky top-0 z-50 p-4 shadow-lg border-b border-gray-700">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-400">⚡ GPU Mining Guide</h1>
+      <nav>
+        <ul class="flex space-x-6 text-sm text-gray-300">
+          <li><a href="#why" class="hover:text-white transition">Overview</a></li>
+          <li><a href="#coins" class="hover:text-white transition">Coins</a></li>
+          <li><a href="#invest" class="hover:text-white transition">Invest</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 px-6 text-center bg-gradient-to-b from-gray-900 to-black">
+    <h2 class="text-5xl font-extrabold mb-4 text-white tracking-tight">Own the Edge of Mining</h2>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+      The definitive platform for mining investors, operators, and believers in decentralization.
+    </p>
+    <a href="#invest" class="mt-8 inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-semibold text-lg px-6 py-3 rounded-xl transition duration-200">
+      💸 Explore Investment Potential
+    </a>
+  </section>
+
+  <!-- Why Section -->
+  <section id="why" class="py-16 px-6 max-w-5xl mx-auto text-center">
+    <h3 class="text-3xl font-bold mb-4 text-gray-100">Why GPU Mining?</h3>
+    <p class="text-gray-400 text-lg leading-relaxed">
+      In a world of centralized cloud and fragile exchanges, mining is the last real sovereignty. 
+      With GPU Mining Guide, you get curated profitability insights, optimized configurations, 
+      and infrastructure blueprints — designed to scale.
+    </p>
+  </section>
+
+  <!-- Coins Grid -->
+  <section id="coins" class="py-12 px-6 max-w-6xl mx-auto">
+    <h3 class="text-2xl font-semibold text-center mb-8 text-gray-100">Featured Coins</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- RVN -->
+      <a href="/rvn.html" class="bg-gray-900 hover:bg-gray-800 rounded-xl p-6 transition-all duration-200 shadow-md hover:shadow-xl border border-gray-800">
+        <h4 class="text-xl font-semibold text-purple-400 mb-1">Ravencoin (RVN)</h4>
+        <p class="text-sm text-gray-400">GPU: KAWPOW — High yield, well supported</p>
       </a>
-
-      <a href="/kas.html" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-6 transition duration-200 shadow-md">
-        <h2 class="text-2xl font-semibold text-purple-400">Kaspa (KAS)</h2>
-        <p class="text-sm text-gray-400 mt-2">⚙️ GPU: kHeavyHash • Extremely efficient, low power use</p>
+      <!-- KAS -->
+      <a href="/kas.html" class="bg-gray-900 hover:bg-gray-800 rounded-xl p-6 transition-all duration-200 shadow-md hover:shadow-xl border border-gray-800">
+        <h4 class="text-xl font-semibold text-purple-400 mb-1">Kaspa (KAS)</h4>
+        <p class="text-sm text-gray-400">GPU: kHeavyHash — Best efficiency per watt</p>
       </a>
-
-      <a href="/flux.html" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-6 transition duration-200 shadow-md">
-        <h2 class="text-2xl font-semibold text-purple-400">Flux (FLUX)</h2>
-        <p class="text-sm text-gray-400 mt-2">🧠 GPU: ZelHash • Decentralized cloud platform w/ solid rewards</p>
+      <!-- FLUX -->
+      <a href="/flux.html" class="bg-gray-900 hover:bg-gray-800 rounded-xl p-6 transition-all duration-200 shadow-md hover:shadow-xl border border-gray-800">
+        <h4 class="text-xl font-semibold text-purple-400 mb-1">Flux (FLUX)</h4>
+        <p class="text-sm text-gray-400">GPU: ZelHash — Cloud infrastructure + yield</p>
       </a>
-
-      <a href="/tari.html" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl p-6 transition duration-200 shadow-md">
-        <h2 class="text-2xl font-semibold text-purple-400">Tari (TARI)</h2>
-        <p class="text-sm text-gray-400 mt-2">🧠 CPU: RandomX-Tari • Solo-mineable with high-end Ryzen chips</p>
+      <!-- TARI -->
+      <a href="/tari.html" class="bg-gray-900 hover:bg-gray-800 rounded-xl p-6 transition-all duration-200 shadow-md hover:shadow-xl border border-gray-800">
+        <h4 class="text-xl font-semibold text-purple-400 mb-1">Tari (TARI)</h4>
+        <p class="text-sm text-gray-400">CPU: RandomX — Solo-mineable, early-stage</p>
       </a>
     </div>
-  </div>
+  </section>
+
+  <!-- Investment CTA -->
+  <section id="invest" class="bg-gray-900 py-16 px-6 text-center border-t border-gray-800">
+    <h3 class="text-3xl font-semibold text-white mb-4">Investment Potential</h3>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+      Scale from one to twelve rigs, backed by clear ROI data, hardware guidance, and mining strategy.
+      Expand into CPU and ASIC sectors with our coming integrations.
+    </p>
+    <a href="/contact.html" class="mt-8 inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-lg px-6 py-3 rounded-xl transition duration-200">
+      📩 Request Investor Deck
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-800 mt-12">
+    © 2025 GPU Mining Guide. Engineered for sovereignty.
+  </footer>
+
 </body>
 </html>
