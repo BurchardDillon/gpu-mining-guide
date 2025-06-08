@@ -28,28 +28,35 @@
     .btn-orange:hover {
       background-color: #ff7d1a;
     }
+    @keyframes marquee {
+      0% { transform: translateX(100%) }
+      100% { transform: translateX(-100%) }
+    }
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Compact sticky header with small logo -->
-  <header class="w-full border-b border-[#333] bg-[#1a1a1a] shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-center items-center h-16 px-4">
-      <a href="/" class="block">
-        <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-10 w-auto object-contain" />
-      </a>
+  <!-- Header with live coin ticker -->
+  <header class="w-full bg-[#1a1a1a] border-b border-[#333] shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
+      <span class="text-xs text-[#888] tracking-wider">LIVE PRICES</span>
+      <div id="coin-ticker" class="flex-1 overflow-hidden ml-6">
+        <div class="flex gap-8 animate-marquee whitespace-nowrap text-sm text-orange-400" id="price-content">
+          Loading prices...
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-6 pt-12 pb-16">
+  <!-- Large logo below ticker -->
+  <div class="flex justify-center mt-12 mb-12">
+    <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
+  </div>
 
-    <!-- Large logo at top of main page -->
-    <div class="flex justify-center mt-8 mb-12">
-      <img src="/logo.png" alt="GPU Mining Guide Logo" class="h-32 sm:h-40 w-auto object-contain" />
-    </div>
-
-    <!-- Overview Section -->
+  <main class="max-w-7xl mx-auto px-6 pb-16">
     <section id="overview" class="mb-16">
       <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
       <p class="text-gray-400 text-lg max-w-3xl">
@@ -57,7 +64,6 @@
       </p>
     </section>
 
-    <!-- Coins Section -->
     <section id="coins" class="mb-20">
       <h2 class="text-2xl font-semibold text-white mb-6">Supported Coins</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,7 +86,6 @@
       </div>
     </section>
 
-    <!-- Investment CTA -->
     <section id="invest" class="bg-[#222] border border-[#333] p-8 rounded-lg text-center">
       <h2 class="text-2xl font-bold text-white mb-4">Investment Potential</h2>
       <p class="text-gray-300 mb-6 max-w-xl mx-auto">
@@ -90,10 +95,34 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="text-center py-6 text-sm text-gray-500 border-t border-[#333] mt-12">
     © 2025 GPU Mining Guide — Designed with efficiency and uptime in mind.
   </footer>
+
+  <!-- Live price fetcher -->
+  <script>
+    async function loadPrices() {
+      const ids = 'ravencoin,kaspa,flux,tari,bitcoin,ethereum';
+      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const ticker = [
+          `RVN: $${data.ravencoin.usd.toFixed(4)}`,
+          `KAS: $${data.kaspa.usd.toFixed(4)}`,
+          `FLUX: $${data.flux.usd.toFixed(3)}`,
+          `TARI: $${data.tari.usd.toFixed(5)}`,
+          `BTC: $${data.bitcoin.usd.toLocaleString()}`,
+          `ETH: $${data.ethereum.usd.toLocaleString()}`
+        ];
+        document.getElementById('price-content').innerHTML = ticker.map(t => `<span>${t}</span>`).join('');
+      } catch (err) {
+        console.error('Failed to load prices:', err);
+      }
+    }
+    loadPrices();
+    setInterval(loadPrices, 60000); // refresh every 60 seconds
+  </script>
 
 </body>
 </html>
