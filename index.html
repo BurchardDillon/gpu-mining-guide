@@ -3,88 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPU Mining Guide | A Symmetrical Adventure</title>
+  <title>GPU Mining Guide | 2Miners Inspired UI</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: 'Georgia', serif;
+      background-color: #1a1a1a;
+      color: #e5e5e5;
+      font-family: 'Inter', sans-serif;
     }
-    .pastel-bg {
-      background: linear-gradient(to bottom, #f4e1c1, #f7f5e6);
+    .accent {
+      color: #ff6b00;
     }
     .card {
-      background-color: #ffe9c6;
-      border: 2px solid #e2c290;
-      transition: all 0.3s ease-in-out;
+      background-color: #2a2a2a;
+      border: 1px solid #3d3d3d;
     }
     .card:hover {
-      background-color: #fff2dc;
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-color: #ff6b00;
+    }
+    .btn-orange {
+      background-color: #ff6b00;
+      color: #1a1a1a;
+    }
+    .btn-orange:hover {
+      background-color: #ff7d1a;
     }
   </style>
 </head>
-<body class="pastel-bg text-gray-800">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-[#f5deb3] border-b-2 border-[#d6b168] p-4 text-center shadow-md">
-    <h1 class="text-4xl font-bold text-[#8b4513] tracking-wider">GPU Mining Guide</h1>
-    <p class="text-[#6b4c1e] mt-2 italic">A perfectly composed guide to mining efficiency and investment harmony</p>
+<body>
+  <header class="w-full border-b border-[#333] py-4 px-6 bg-[#1a1a1a] shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold accent">GPU Mining Guide</h1>
+      <nav class="space-x-6 text-sm">
+        <a href="#overview" class="hover:text-white text-gray-400">Overview</a>
+        <a href="#coins" class="hover:text-white text-gray-400">Coins</a>
+        <a href="#invest" class="hover:text-white text-gray-400">Invest</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Navigation -->
-  <nav class="bg-[#fff4dc] border-t-2 border-b-2 border-[#d6b168] py-3">
-    <ul class="flex justify-center space-x-8 text-[#a0522d] font-semibold text-lg">
-      <li><a href="#overview" class="hover:underline">Overview</a></li>
-      <li><a href="#coins" class="hover:underline">Coins</a></li>
-      <li><a href="#invest" class="hover:underline">Invest</a></li>
-    </ul>
-  </nav>
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <section id="overview" class="mb-16">
+      <h2 class="text-3xl font-semibold text-white mb-4">Why GPU Mining?</h2>
+      <p class="text-gray-400 text-lg max-w-3xl">
+        GPU Mining Guide is your high-performance dashboard to real profitability. We track, optimize, and scale efficient crypto mining rigs for modern builders.
+      </p>
+    </section>
 
-  <!-- Overview -->
-  <section id="overview" class="text-center px-6 py-16 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-semibold text-[#8b4513] mb-4">Why GPU Mining?</h2>
-    <p class="text-lg text-[#4b3e2b] leading-relaxed">
-      In the spirit of symmetry, logic, and aesthetic rigor, GPU Mining Guide presents a curated ensemble of coins, calculations, and configurations. Designed to appeal to those who value balance, ROI, and quiet efficiency.
-    </p>
-  </section>
+    <section id="coins" class="mb-20">
+      <h2 class="text-2xl font-semibold text-white mb-6">Supported Coins</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="/rvn.html" class="card p-5 rounded-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold accent mb-1">Ravencoin (RVN)</h3>
+          <p class="text-sm text-gray-300">GPU: KAWPOW • Consistent performer</p>
+        </a>
+        <a href="/kas.html" class="card p-5 rounded-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold accent mb-1">Kaspa (KAS)</h3>
+          <p class="text-sm text-gray-300">GPU: kHeavyHash • Efficient and scalable</p>
+        </a>
+        <a href="/flux.html" class="card p-5 rounded-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold accent mb-1">Flux (FLUX)</h3>
+          <p class="text-sm text-gray-300">GPU: ZelHash • Cloud-native rewards</p>
+        </a>
+        <a href="/tari.html" class="card p-5 rounded-md hover:shadow-lg transition">
+          <h3 class="text-lg font-bold accent mb-1">Tari (TARI)</h3>
+          <p class="text-sm text-gray-300">CPU: RandomX • Lightweight solo mining</p>
+        </a>
+      </div>
+    </section>
 
-  <!-- Coins -->
-  <section id="coins" class="max-w-6xl mx-auto px-6 pb-20">
-    <h3 class="text-2xl text-center font-bold text-[#8b4513] mb-10">Featured Mining Subjects</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <a href="/rvn.html" class="card p-6 rounded-lg text-center">
-        <h4 class="text-xl font-bold text-[#a0522d] mb-2">Ravencoin (RVN)</h4>
-        <p class="text-[#5a4632] text-sm">GPU: KAWPOW – Bold and efficient</p>
-      </a>
-      <a href="/kas.html" class="card p-6 rounded-lg text-center">
-        <h4 class="text-xl font-bold text-[#a0522d] mb-2">Kaspa (KAS)</h4>
-        <p class="text-[#5a4632] text-sm">GPU: kHeavyHash – Silent and powerful</p>
-      </a>
-      <a href="/flux.html" class="card p-6 rounded-lg text-center">
-        <h4 class="text-xl font-bold text-[#a0522d] mb-2">Flux (FLUX)</h4>
-        <p class="text-[#5a4632] text-sm">GPU: ZelHash – Cloudlike, complex</p>
-      </a>
-      <a href="/tari.html" class="card p-6 rounded-lg text-center">
-        <h4 class="text-xl font-bold text-[#a0522d] mb-2">Tari (TARI)</h4>
-        <p class="text-[#5a4632] text-sm">CPU: RandomX – An eccentric performer</p>
-      </a>
-    </div>
-  </section>
+    <section id="invest" class="bg-[#222] border border-[#333] p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold text-white mb-4">Investment Potential</h2>
+      <p class="text-gray-300 mb-6 max-w-xl mx-auto">
+        Our rigs achieve ROI in 5–7 months. Scale up to 12+ units by Q4 2025 using optimized GPU or CPU builds. This isn’t financial advice — it’s data-driven proof-of-work.
+      </p>
+      <a href="/contact.html" class="btn-orange px-6 py-3 rounded-md text-sm font-semibold">📩 Request Prospectus</a>
+    </section>
+  </main>
 
-  <!-- Investment -->
-  <section id="invest" class="bg-[#fdf6e3] border-t-2 border-[#d6b168] py-16 text-center">
-    <h3 class="text-3xl font-bold text-[#8b4513] mb-6">A Measured Opportunity</h3>
-    <p class="text-[#4b3e2b] text-lg max-w-2xl mx-auto mb-6">
-      Estimated ROI: 5–7 months. A methodical expansion to 12+ rigs by Q4 2025. For those who appreciate steady growth over wild speculation.
-    </p>
-    <a href="/contact.html" class="inline-block bg-[#ffcc70] text-[#4b2e14] font-bold px-6 py-3 rounded-lg hover:bg-[#ffd98e] transition">
-      📜 Request Prospectus
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#f5deb3] text-center py-4 text-sm text-[#4b3e2b]">
-    © 2025 GPU Mining Guide. Arranged with great care and deliberation.
+  <footer class="text-center py-6 text-sm text-gray-500 border-t border-[#333] mt-12">
+    © 2025 GPU Mining Guide — Designed with efficiency and uptime in mind.
   </footer>
 </body>
 </html>
