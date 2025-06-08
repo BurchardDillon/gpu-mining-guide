@@ -44,7 +44,7 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center h-12 px-4 text-sm text-gray-300 font-medium overflow-hidden">
       <span class="text-xs text-[#888] tracking-wider">LIVE PRICES</span>
       <div id="coin-ticker" class="flex-1 overflow-hidden ml-6">
-        <div class="flex gap-8 animate-marquee whitespace-nowrap text-sm text-orange-400" id="price-content">
+        <div class="flex gap-8 animate-marquee whitespace-nowrap text-sm" id="price-content">
           Loading prices...
         </div>
       </div>
@@ -104,30 +104,46 @@
     © 2025 GPU Mining Guide — Designed with efficiency and uptime in mind.
   </footer>
 
-  <!-- CoinGecko Live Prices -->
+  <!-- CoinGecko Live Price Fetching Script -->
   <script>
     async function loadPrices() {
       const ids = 'ravencoin,kaspa,flux,bitcoin,ethereum';
-      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
+      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+
       try {
         const res = await fetch(url);
         const data = await res.json();
+
+        const format = (name, price, change) => {
+          const isUp = change >= 0;
+          const arrow = isUp ? '▲' : '▼';
+          const color = isUp ? 'text-green-400' : 'text-red-400';
+          const changeText = `${arrow} ${Math.abs(change).toFixed(2)}% (1d)`;
+          return `
+            <span class="flex items-center gap-2">
+              <span class="text-orange-400">${name}: $${price.toFixed(4)}</span>
+              <span class="${color} text-xs">${changeText}</span>
+            </span>
+          `;
+        };
+
         const ticker = [
-          `RVN: $${data.ravencoin.usd.toFixed(4)}`,
-          `KAS: $${data.kaspa.usd.toFixed(4)}`,
-          `FLUX: $${data.flux.usd.toFixed(3)}`,
-          `BTC: $${data.bitcoin.usd.toLocaleString()}`,
-          `ETH: $${data.ethereum.usd.toLocaleString()}`
+          format('RVN', data.ravencoin.usd, data.ravencoin.usd_24h_change),
+          format('KAS', data.kaspa.usd, data.kaspa.usd_24h_change),
+          format('FLUX', data.flux.usd, data.flux.usd_24h_change),
+          format('BTC', data.bitcoin.usd, data.bitcoin.usd_24h_change),
+          format('ETH', data.ethereum.usd, data.ethereum.usd_24h_change),
         ];
-        document.getElementById('price-content').innerHTML = ticker.map(t => `<span>${t}</span>`).join(' ');
+
+        document.getElementById('price-content').innerHTML = ticker.join('');
       } catch (err) {
         console.error('Failed to load prices:', err);
-        document.getElementById('price-content').textContent = 'Unable to load prices at this time.';
+        document.getElementById('price-content').textContent = 'Unable to load prices.';
       }
     }
 
     loadPrices();
-    setInterval(loadPrices, 60000); // Update every 60 seconds
+    setInterval(loadPrices, 60000); // update every 60s
   </script>
 
 </body>
